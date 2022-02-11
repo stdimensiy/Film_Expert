@@ -1,4 +1,4 @@
-package ru.vdv.myapp.myreadersdiary.model.retrofit
+package ru.vdv.filmexpert.model.retrofit
 
 import ru.vdv.filmexpert.model.api.IApiTmdbService
 

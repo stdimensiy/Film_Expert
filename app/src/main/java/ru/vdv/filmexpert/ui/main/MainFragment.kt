@@ -19,6 +19,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        if (savedInstanceState == null) viewModel.fetchListMovies("top_rated",1)
     }
 
     @Suppress("InlinedApi")
