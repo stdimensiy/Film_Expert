@@ -1,7 +1,7 @@
 package ru.vdv.filmexpert.ui.details
 
-import androidx.lifecycle.ViewModel
+import ru.vdv.filmexpert.ui.common.BaseViewModel
 
-class MovieDetailsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class MovieDetailsViewModel : BaseViewModel() {
+
 }

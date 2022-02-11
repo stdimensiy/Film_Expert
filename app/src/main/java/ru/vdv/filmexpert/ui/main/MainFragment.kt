@@ -2,19 +2,24 @@ package ru.vdv.filmexpert.ui.main
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import ru.vdv.filmexpert.databinding.FragmentMainBinding
+import ru.vdv.filmexpert.ui.common.BaseFragment
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
+    private lateinit var viewModel: MainViewModel
     private val hideHandler = Handler()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+    }
 
     @Suppress("InlinedApi")
     private val hidePart2Runnable = Runnable {
@@ -33,35 +38,15 @@ class MainFragment : Fragment() {
         activity?.window?.decorView?.systemUiVisibility = flags
         (activity as? AppCompatActivity)?.supportActionBar?.hide()
     }
-//    private val showPart2Runnable = Runnable {
-//        // Delayed display of UI elements
-//        //fullscreenContentControls?.visibility = View.VISIBLE
-//    }
     private val hideRunnable = Runnable { hide() }
 
 
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
-
-    }
-
     override fun onResume() {
         super.onResume()
-        //activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         delayedHide(100)
     }
 
     private fun hide() {
-//        hideHandler.removeCallbacks(showPart2Runnable)
         hideHandler.postDelayed(hidePart2Runnable, UI_ANIMATION_DELAY.toLong())
     }
 
@@ -92,10 +77,5 @@ class MainFragment : Fragment() {
          * and a change of the status and navigation bar.
          */
         private const val UI_ANIMATION_DELAY = 300
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
