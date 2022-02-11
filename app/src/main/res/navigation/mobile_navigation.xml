@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.vdv.filmexpert.main.MainFragment"
+        android:name="ru.vdv.filmexpert.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/blankFragment"
-        android:name="ru.vdv.filmexpert.details.BlankFragment"
+        android:name="ru.vdv.filmexpert.ui.details.MovieDetailsFragment"
         android:label="blank_fragment"
-        tools:layout="@layout/blank_fragment" />
+        tools:layout="@layout/fragment_movie_details" />
 </navigation>

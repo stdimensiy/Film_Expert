@@ -1,12 +1,10 @@
-package ru.vdv.filmexpert.main
+package ru.vdv.filmexpert.ui.main
 
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.vdv.filmexpert.databinding.FragmentMainBinding

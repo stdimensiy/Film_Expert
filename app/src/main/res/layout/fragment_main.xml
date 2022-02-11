@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.FilmExpert.FullscreenContainer"
-    tools:context=".main.MainFragment">
+    tools:context=".ui.main.MainFragment">
 
     <TextView
         android:id="@+id/fullscreen_content"
