@@ -22,7 +22,7 @@
     </style>
 
     <style name="ThemeOverlay.FilmExpert.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenBackgroundColor">@color/white</item>
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 </resources>

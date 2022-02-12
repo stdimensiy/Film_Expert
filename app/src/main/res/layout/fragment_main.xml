@@ -15,7 +15,7 @@
         android:gravity="center"
         android:keepScreenOn="true"
         android:text="@string/dummy_content"
-        android:textColor="?attr/fullscreenTextColor"
+        android:textColor="@color/header_white"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -24,16 +24,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/header_white"
+            app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
         <TextView
             android:id="@+id/header_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
             android:gravity="top"
             android:keepScreenOn="true"
             android:text="Top Movies"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="50sp"
             android:textStyle="bold"
-            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
