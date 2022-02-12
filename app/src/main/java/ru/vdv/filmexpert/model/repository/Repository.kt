@@ -12,7 +12,7 @@ import ru.vdv.filmexpert.model.retrofit.Common
 
 class Repository : IRepository {
     private val networkServiceTmdb: IApiTmdbService = Common.retrofitService
-    override fun getStandartList(
+    override fun getStandardList(
         standardList: String,
         tmdbApiKeyV3: String,
         adultAdded: Boolean,

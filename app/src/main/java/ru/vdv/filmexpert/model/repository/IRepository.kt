@@ -4,7 +4,7 @@ import ru.vdv.filmexpert.domain.CallBack
 import ru.vdv.filmexpert.domain.MoviesResponseTmdb
 
 interface IRepository {
-    fun getStandartList(
+    fun getStandardList(
         standardList: String,
         tmdbApiKeyV3: String,
         adultAdded: Boolean,
