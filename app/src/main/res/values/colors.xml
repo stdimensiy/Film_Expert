@@ -13,4 +13,24 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="green_200">#FF00FF00</color>
+
+    //Для прогрессбара градационный переход от красного к зеленому
+    <color name="red_to_green_000">#FFFF0000</color>
+    <color name="red_to_green_010">#FFEF1F00</color>
+    <color name="red_to_green_015">#FFDF2F00</color>
+    <color name="red_to_green_020">#FFCF3F00</color>
+    <color name="red_to_green_025">#FFBF4F00</color>
+    <color name="red_to_green_030">#FFAF5F00</color>
+    <color name="red_to_green_035">#FF9F6F00</color>
+    <color name="red_to_green_040">#FF8F7F00</color>
+    <color name="red_to_green_045">#FF7F8F00</color>
+    <color name="red_to_green_050">#FF6F9F00</color>
+    <color name="red_to_green_060">#FF5FAF00</color>
+    <color name="red_to_green_070">#FF4FBF00</color>
+    <color name="red_to_green_080">#FF3FCF00</color>
+    <color name="red_to_green_090">#FF2FDF00</color>
+    <color name="red_to_green_095">#FF1FEF00</color>
+    <color name="red_to_green_100">#FF00FF00</color>
+
 </resources>
