@@ -3,14 +3,18 @@ package ru.vdv.filmexpert.ui.main
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
+import android.os.Bundle
+import android.provider.BaseColumns
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.R
 import ru.vdv.filmexpert.domain.MovieTmdb
 import ru.vdv.filmexpert.model.api.TmdbApiConstants
+import ru.vdv.filmexpert.ui.common.BaseConstants
 import ru.vdv.myapp.myreadersdiary.glide.GlideImageLoader
 import ru.vdv.myapp.myreadersdiary.glide.ImageLoader
 import java.time.LocalDate
@@ -78,6 +82,15 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
             String.format(TmdbApiConstants.POSTER_URL, item.posterPath),
             holder.posterImage
         )
+    }
+
+    override fun onViewAttachedToWindow(holder: MainViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        holder.itemView.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putParcelable(BaseConstants.MY_MOVIE_BUNDLE_KEY, items[holder.adapterPosition])
+            holder.itemView.findNavController().navigate(R.id.blankFragment)
+        }
     }
 
     override fun getItemCount(): Int {
