@@ -11,7 +11,7 @@ class GlideImageLoader : ImageLoader<ImageView> {
     override fun loadMovieCover(url: String, container: ImageView) {
         Glide.with(container.context)
             .load(url)
-            .placeholder(R.drawable.book_plug)
+            .placeholder(R.drawable.zgl)
             .error(R.drawable.error_sign)
             .transition(DrawableTransitionOptions.withCrossFade(1500))
             .centerCrop()

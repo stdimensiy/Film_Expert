@@ -1,10 +1,15 @@
 package ru.vdv.filmexpert.ui.main
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.databinding.FragmentMainBinding
 import ru.vdv.filmexpert.ui.common.BaseFragment
 
@@ -14,11 +19,36 @@ import ru.vdv.filmexpert.ui.common.BaseFragment
  */
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     private lateinit var viewModel: MainViewModel
+    private lateinit var adapter: MainAdapter
     private val hideHandler = Handler()
+    private var apikey: String = ""
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        adapter = MainAdapter()
+        apikey = requireContext().applicationContext.packageManager.getApplicationInfo(
+            requireContext().applicationContext.packageName,
+            PackageManager.GET_META_DATA
+        ).metaData["keyValue"].toString()
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        if (savedInstanceState == null) viewModel.fetchListMovies("upcoming", apikey, 1)
+
+        val movieList = binding.rvBasicList
+        movieList.adapter = adapter
+        movieList.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+
+        viewModel.moviesList.observe(viewLifecycleOwner) {
+            adapter.items = it
+            adapter.notifyDataSetChanged()
+        }
     }
 
     @Suppress("InlinedApi")
