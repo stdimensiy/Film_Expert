@@ -5,6 +5,9 @@ object TmdbApiConstants {
     /** Рабочая (основная по умолчанию) версия API */
     const val DEFAULT_API_VERSION = 3
 
+    /** Базовый URL API **/
+    const val BASE_URL_TMDB = "https://api.themoviedb.org/"
+
     /** Server endpoint  фдрес базового размещеия графического материала  */
     private const val IMAGE_SERVER_URL = "https://image.tmdb.org/t/p/"
 

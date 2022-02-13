@@ -1,13 +1,12 @@
 package ru.vdv.filmexpert.model.retrofit
 
 import ru.vdv.filmexpert.model.api.IApiTmdbService
+import ru.vdv.filmexpert.model.api.TmdbApiConstants
 
 object Common {
-    private const val BASE_URL_TMDB = "https://api.themoviedb.org/"
-
     val retrofitService: IApiTmdbService
         get() {
-            return RetrofitClientDA.getClient(BASE_URL_TMDB)
+            return RetrofitClientDA.getClient(TmdbApiConstants.BASE_URL_TMDB)
                 .create(IApiTmdbService::class.java)
         }
 }

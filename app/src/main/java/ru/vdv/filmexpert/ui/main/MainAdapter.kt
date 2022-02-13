@@ -2,15 +2,20 @@ package ru.vdv.filmexpert.ui.main
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.R
 import ru.vdv.filmexpert.domain.MovieTmdb
 import ru.vdv.filmexpert.model.api.TmdbApiConstants
 import ru.vdv.myapp.myreadersdiary.glide.GlideImageLoader
 import ru.vdv.myapp.myreadersdiary.glide.ImageLoader
+import java.time.LocalDate
+import java.time.format.TextStyle
+import java.util.*
 
 class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
     private val imageLoader: ImageLoader<ImageView> = GlideImageLoader()
@@ -20,12 +25,26 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
         return MainViewHolder(LayoutInflater.from(parent.context), parent)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val item = items[position]
         val roundedRatingValue = (item.voteAverage * 10).toInt()
         holder.name.text = item.title
-        holder.data.text = item.releaseDate
+        val cdata = LocalDate.parse(item.releaseDate)
+        // DateTimeFormatter не получается нормально выдать формат месяца, не устраивает шаблон
+        // решение вопроса вручную, метод .capitalize теперь Deprecated , так что и его действие
+        // нужно будет на этапе зачистки кода реализовано вручную.
+        val prepareStringData = String.format(
+            "%02d %s %s",
+            cdata.dayOfMonth,
+            (cdata.month.getDisplayName(
+                TextStyle.SHORT,
+                Locale.forLanguageTag("RU")
+            )).capitalize(Locale.forLanguageTag("RU")).substring(0, 3),
+            cdata.year
+        )
+        holder.data.text = prepareStringData
         val viewContext = holder.itemView.context
         val rBar = holder.ratingBar
         holder.rating.text = roundedRatingValue.toString()
@@ -59,7 +78,6 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
             String.format(TmdbApiConstants.POSTER_URL, item.posterPath),
             holder.posterImage
         )
-
     }
 
     override fun getItemCount(): Int {
