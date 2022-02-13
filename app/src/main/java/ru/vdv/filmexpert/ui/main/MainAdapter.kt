@@ -5,10 +5,12 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.provider.BaseColumns
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.R
@@ -86,11 +88,16 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onViewAttachedToWindow(holder: MainViewHolder) {
         super.onViewAttachedToWindow(holder)
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putParcelable(BaseConstants.MY_MOVIE_BUNDLE_KEY, items[holder.adapterPosition])
-            holder.itemView.findNavController().navigate(R.id.blankFragment)
+            holder.itemView.findNavController().navigate(R.id.blankFragment, bundle)
         }
+    }
+
+    override fun onViewDetachedFromWindow(holder: MainViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.itemView.setOnClickListener(null)
     }
 
     override fun getItemCount(): Int {

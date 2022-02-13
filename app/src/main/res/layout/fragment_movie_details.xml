@@ -24,14 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
-            android:id="@+id/view_bg_movie"
+        <ImageView
+            android:id="@+id/iv_bg_movie"
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:background="@color/teal_700"
+            android:alpha="0.5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg1_01_2"
+            />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
@@ -42,7 +44,7 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:contentPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view_bg_movie"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bg_movie"
             app:layout_constraintStart_toStartOf="@+id/tv_name_movie"
             tools:ignore="MissingConstraints">
 
@@ -72,6 +74,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/header_white"
             android:textSize="40sp"
+            android:minLines="2"
+            android:maxLines="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -143,7 +147,7 @@
             android:layout_marginBottom="16dp"
             android:padding="0dp"
             android:scrollbarSize="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view_bg_movie"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bg_movie"
             app:layout_constraintStart_toEndOf="@+id/materialCardView">
 
             <ImageView
@@ -197,7 +201,7 @@
             android:layout_marginStart="8dp"
             android:gravity="center_vertical"
             android:keepScreenOn="true"
-            android:text="User Score"
+            android:text="Оценка TMDB"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/header_white"
             android:textSize="20sp"

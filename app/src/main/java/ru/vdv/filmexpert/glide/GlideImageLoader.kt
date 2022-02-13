@@ -32,11 +32,11 @@ class GlideImageLoader : ImageLoader<ImageView> {
         val options = RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         Glide.with(container.context)
             .load(url)
-            //.placeholder(R.drawable.bg1_01_2)
+            .placeholder(R.drawable.bg1_01_2)
             //.error(R.drawable.error_sign)
             .transition(DrawableTransitionOptions.withCrossFade(1500))
             .apply(options)
-            //.circleCrop()
+            .centerCrop()
             .into(container)
     }
 }

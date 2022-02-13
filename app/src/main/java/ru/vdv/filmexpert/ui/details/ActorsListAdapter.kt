@@ -14,12 +14,10 @@ class ActorsListAdapter: RecyclerView.Adapter<ActorsListViewHolder>() {
     private val imageLoader: ImageLoader<ImageView> = GlideImageLoader()
     var items: List<Actor> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorsListViewHolder {
-        Log.d("Моя проверка", "Созаю холдер")
         return ActorsListViewHolder(LayoutInflater.from(parent.context), parent)
     }
 
     override fun onBindViewHolder(holder: ActorsListViewHolder, position: Int) {
-        Log.d("Моя проверка", "Бандим холдер")
         val item = items[position]
         holder.nameActor.text = item.name
         holder.character.text = item.character
@@ -30,7 +28,6 @@ class ActorsListAdapter: RecyclerView.Adapter<ActorsListViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        Log.d("Моя проверка", "Количество элементов ${items.size}")
         return items.size
     }
 }
