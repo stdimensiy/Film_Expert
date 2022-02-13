@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import ru.vdv.filmexpert.domain.CallBack
+import ru.vdv.filmexpert.domain.CreditsResponseTmdb
 import ru.vdv.filmexpert.domain.MoviesResponseTmdb
 import ru.vdv.filmexpert.model.api.IApiTmdbService
 import ru.vdv.filmexpert.model.api.TmdbApiConstants
@@ -36,6 +37,32 @@ class Repository : IRepository {
                 }
 
                 override fun onFailure(call: Call<MoviesResponseTmdb>, t: Throwable) {
+                }
+            })
+    }
+
+    override fun getCreditsList(
+        tmdbApiKeyV3: String,
+        movieId: String,
+        callBack: CallBack<CreditsResponseTmdb>
+    ){
+        networkServiceTmdb.sectionMoviesGetCredits(
+            TmdbApiConstants.DEFAULT_API_VERSION,
+            movieId,
+            tmdbApiKeyV3,
+            TmdbApiConstants.LANGUAGE_ANSWER
+        )
+            .enqueue(object : Callback<CreditsResponseTmdb> {
+                override fun onResponse(
+                    call: Call<CreditsResponseTmdb>,
+                    response: Response<CreditsResponseTmdb>
+                ) {
+                    response.body()?.let {
+                        callBack.onResult(it)
+                    }
+                }
+
+                override fun onFailure(call: Call<CreditsResponseTmdb>, t: Throwable) {
                 }
             })
     }

@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import ru.vdv.filmexpert.domain.CreditsResponseTmdb
 import ru.vdv.filmexpert.domain.MoviesResponseTmdb
 
 interface IApiTmdbService {
@@ -29,4 +30,21 @@ interface IApiTmdbService {
         @Query("include_adult") includeAdult: Boolean
         //@Query("region") region: String
     ): Call<MoviesResponseTmdb>
+
+
+    /**
+     * Раздел API: Movies Получить список участников (актеров и съемочной группы)
+     * Режим полечения дополнительной информации
+     * @param apiVersion версия API с которой приято решение работать
+     * @param key базовый ключ пользователя API key
+     * @param language установка базового языка ответа
+     * @return возвращает список фиьмов с самым высоким рейтонгом по версии TMDB.
+     */
+    @GET("{api_version}/movie/{movie_id}/casts")
+    fun sectionMoviesGetCredits(
+        @Path("api_version") apiVersion: Int,
+        @Path("movie_id") movieId: String,
+        @Query("api_key") key: String,
+        @Query("language") language: String,
+    ): Call<CreditsResponseTmdb>
 }

@@ -27,7 +27,7 @@
         <View
             android:id="@+id/view_bg_movie"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="280dp"
             android:background="@color/teal_700"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
 
 
             <ImageView
-                android:id="@+id/iv_poster_list_item"
+                android:id="@+id/iv_poster"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:contentDescription=""
@@ -218,7 +218,7 @@
             android:keepScreenOn="true"
             android:text="Overview"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -229,12 +229,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="18dp"
             android:gravity="top"
             android:keepScreenOn="true"
             android:text="The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins."
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_overview_header" />
@@ -250,7 +250,7 @@
             android:keepScreenOn="true"
             android:text="Top billed cast"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +260,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_actor_list"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="260dp"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
