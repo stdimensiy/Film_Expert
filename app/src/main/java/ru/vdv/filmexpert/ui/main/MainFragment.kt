@@ -3,6 +3,7 @@ package ru.vdv.filmexpert.ui.main
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.databinding.FragmentMainBinding
+import ru.vdv.filmexpert.domain.OnLoadMoreMovies
 import ru.vdv.filmexpert.ui.common.BaseFragment
 
 /**
@@ -44,6 +46,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         val movieList = binding.rvBasicList
         movieList.adapter = adapter
         movieList.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+        adapter.setOnLoadMoreMoviesListener(object : OnLoadMoreMovies {
+            override fun onLoadMore() {
+                Log.d(TAG, "Пора грузить новые данные")
+            }
+        })
 
         viewModel.moviesList.observe(viewLifecycleOwner) {
             adapter.items = it
