@@ -24,7 +24,7 @@
             android:id="@+id/iv_actor_profile"
             android:layout_width="100dp"
             android:layout_height="160dp"
-            app:srcCompat="@drawable/zgl" />
+            app:srcCompat="@drawable/zgl_actor" />
 
         <LinearLayout
             android:layout_width="match_parent"

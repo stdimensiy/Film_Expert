@@ -20,7 +20,7 @@ class ActorsListAdapter : RecyclerView.Adapter<ActorsListViewHolder>() {
         val item = items[position]
         holder.nameActor.text = item.name
         holder.character.text = item.character
-        imageLoader.loadMovieCover(
+        imageLoader.loadActorAvatar(
             String.format(TmdbApiConstants.POSTER_URL, item.profilePath),
             holder.actorImage
         )
