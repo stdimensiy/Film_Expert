@@ -4,6 +4,15 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+/**
+ * Класс MovieCollection (создан для корректного приема данных сервиса TMDB)
+ * отвечает за хранение информации о коллекции (к которой принадлежит фильм выборки)
+ * @param id  Идентификатор коллекции
+ * @param name Наименование коллекции (возвращается локализованным)
+ * @param posterPath  ссылка на постер коллекции
+ * @param backdropPath  ссылка на фон 9второй постер) коллекции
+ * @constructor создает объект содержащий информацию о коллекции в котороую включен фильм
+ */
 @Parcelize
 data class MovieCollection(
     @SerializedName("id")

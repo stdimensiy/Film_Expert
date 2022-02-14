@@ -1,6 +1,5 @@
 package ru.vdv.filmexpert.ui.details
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,7 +9,7 @@ import ru.vdv.filmexpert.model.api.TmdbApiConstants
 import ru.vdv.myapp.myreadersdiary.glide.GlideImageLoader
 import ru.vdv.myapp.myreadersdiary.glide.ImageLoader
 
-class ActorsListAdapter: RecyclerView.Adapter<ActorsListViewHolder>() {
+class ActorsListAdapter : RecyclerView.Adapter<ActorsListViewHolder>() {
     private val imageLoader: ImageLoader<ImageView> = GlideImageLoader()
     var items: List<Actor> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorsListViewHolder {

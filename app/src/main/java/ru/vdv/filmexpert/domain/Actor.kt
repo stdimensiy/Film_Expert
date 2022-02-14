@@ -1,7 +1,25 @@
 package ru.vdv.filmexpert.domain
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+/**
+ * Класс Actor (создан для корректного приема данных сервиса TMDB)
+ * отвечает за хранение данных об актерах
+ * @param adult  Признак (взрослый или ребенок)
+ * @param gender Пол (ну текущее его значение)
+ * @param knownForDepartment  Какому подразделению принадлежит
+ * @param name  ФИО актора
+ * @param originalName  Настоящее ФИО актера
+ * @param popularity  Индекс популярности
+ * @param profilePath  Ссылка на файл картинки профиля актера (аватара)
+ * @param castId  Идентификатор актера
+ * @param character  Персонаж (Объекты актера формируются в результате выборки актерского состава по
+ * конкретному фильму, поэтуму данное поле содержит наименование персонажа для конкретного фильма *
+ * @constructor создает объект содержащий два списка (актеры и съемочная группа фильма)
+ */
 
+@Parcelize
 data class Actor(
     @SerializedName("adult")
     val adult: Boolean = false,
@@ -25,4 +43,4 @@ data class Actor(
     val creditId: String = "",
     @SerializedName("order")
     val order: Int = 0,
-)
+): Parcelable

@@ -10,9 +10,9 @@
     android:elevation="2dp"
     android:focusable="true"
     app:cardCornerRadius="8dp"
-    app:strokeWidth="1dp"
+    app:cardElevation="8dp"
     app:strokeColor="@color/material_on_surface_stroke"
-    app:cardElevation="8dp">
+    app:strokeWidth="1dp">
 
 
     <LinearLayout
@@ -39,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="Имя актера"
-                android:textSize="12sp"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_character"

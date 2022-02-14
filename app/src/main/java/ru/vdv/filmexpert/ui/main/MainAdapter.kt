@@ -4,13 +4,10 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.provider.BaseColumns
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.R

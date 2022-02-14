@@ -29,9 +29,9 @@
             android:layout_height="0dp"
             android:background="@color/header_white"
             app:layout_constraintBottom_toTopOf="@+id/materialDivider"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_marginTop="50dp"
             android:gravity="top"
             android:keepScreenOn="true"
-            android:text="Top Movies"
+            android:text="@string/header_title_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="50sp"
             android:textStyle="bold"

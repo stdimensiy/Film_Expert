@@ -39,7 +39,8 @@ interface IApiTmdbService {
      * @param apiVersion версия API с которой приято решение работать
      * @param key базовый ключ пользователя API key
      * @param language установка базового языка ответа
-     * @return возвращает список фиьмов с самым высоким рейтонгом по версии TMDB.
+     * @return возвращает список актеров и участников съемочного процесса отсортированный
+     * согласно рейтингу по версии TMDB.
      */
     @GET("{api_version}/movie/{movie_id}/casts")
     fun sectionMoviesGetCredits(
@@ -50,12 +51,12 @@ interface IApiTmdbService {
     ): Call<CreditsResponseTmdb>
 
     /**
-     * Раздел API: Movies Получить список участников (актеров и съемочной группы)
+     * Раздел API - Movies  Получить детализированную информацию о фильме
      * Режим полечения дополнительной информации
      * @param apiVersion версия API с которой приято решение работать
      * @param key базовый ключ пользователя API key
      * @param language установка базового языка ответа
-     * @return возвращает список фиьмов с самым высоким рейтонгом по версии TMDB.
+     * @return возвращает расширенный набор полей для объекта фильма по версии TMDB.
      */
     @GET("{api_version}/movie/{movie_id}")
     fun sectionMoviesGetDetailInfo(
