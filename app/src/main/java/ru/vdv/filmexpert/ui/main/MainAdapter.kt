@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.R
 import ru.vdv.filmexpert.domain.MovieTmdb
+import ru.vdv.filmexpert.domain.OnLoadMoreMovies
 import ru.vdv.filmexpert.model.api.TmdbApiConstants
 import ru.vdv.filmexpert.ui.common.BaseConstants
 import ru.vdv.myapp.myreadersdiary.glide.GlideImageLoader
@@ -21,6 +22,7 @@ import java.time.format.TextStyle
 import java.util.*
 
 class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
+    private var onLoadMoreMoviesListener: OnLoadMoreMovies? = null
     private val imageLoader: ImageLoader<ImageView> = GlideImageLoader()
     var items: List<MovieTmdb> = listOf()
 
@@ -81,6 +83,10 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
             String.format(TmdbApiConstants.POSTER_URL, item.posterPath),
             holder.posterImage
         )
+
+        if (items.isNotEmpty() && position == items.size - 1) {
+            onLoadMoreMoviesListener!!.onLoadMore()
+        }
     }
 
     override fun onViewAttachedToWindow(holder: MainViewHolder) {
@@ -99,5 +105,9 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun setOnLoadMoreMoviesListener(onLoadMoreMoviesListener: OnLoadMoreMovies) {
+        this.onLoadMoreMoviesListener = onLoadMoreMoviesListener
     }
 }
