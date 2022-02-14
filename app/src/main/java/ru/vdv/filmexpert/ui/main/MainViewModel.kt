@@ -9,17 +9,28 @@ import ru.vdv.filmexpert.ui.common.BaseViewModel
 
 class MainViewModel : BaseViewModel() {
     private var adultAdded = true
-    private val _moviesList = MutableLiveData<List<MovieTmdb>>().apply {
-        value = listOf()
+    private var _currentResponseTmdb: MoviesResponseTmdb? = null
+    private var _currentPage: Int = 1
+    private var prepareListMovie: ArrayList<MovieTmdb> = arrayListOf()
+    private val _moviesList = MutableLiveData<ArrayList<MovieTmdb>>().apply {
+        value = prepareListMovie
     }
-    val moviesList: LiveData<List<MovieTmdb>> = _moviesList
+    val moviesList: LiveData<ArrayList<MovieTmdb>> = _moviesList
 
-    fun fetchListMovies(standardList: String, tmdbApiKeyV3: String, page: Int) {
-        repository.getStandardList(standardList, tmdbApiKeyV3, adultAdded, page, object :
-            CallBack<MoviesResponseTmdb> {
-            override fun onResult(value: MoviesResponseTmdb) {
-                _moviesList.value = value.results
-            }
-        })
+    fun fetchListMovies(standardList: String, tmdbApiKeyV3: String) {
+        if (_currentPage != 0) {
+            repository.getStandardList(standardList, tmdbApiKeyV3, adultAdded, _currentPage,
+                object : CallBack<MoviesResponseTmdb> {
+                    override fun onResult(value: MoviesResponseTmdb) {
+                        _currentResponseTmdb = value
+                        if (value.page == _currentPage) {
+                            prepareListMovie.addAll(value.results)
+                            _moviesList.postValue(prepareListMovie)
+                            _currentPage += if (value.totalPages > _currentPage) 1
+                            else 0
+                        }
+                    }
+                })
+        }
     }
 }

@@ -41,17 +41,16 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        if (savedInstanceState == null) viewModel.fetchListMovies("upcoming", apikey, 1)
+        if (savedInstanceState == null) viewModel.fetchListMovies("upcoming", apikey)
 
         val movieList = binding.rvBasicList
         movieList.adapter = adapter
         movieList.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
         adapter.setOnLoadMoreMoviesListener(object : OnLoadMoreMovies {
             override fun onLoadMore() {
-                Log.d(TAG, "Пора грузить новые данные")
+                viewModel.fetchListMovies("upcoming", apikey)
             }
         })
-
         viewModel.moviesList.observe(viewLifecycleOwner) {
             adapter.items = it
             adapter.notifyDataSetChanged()
