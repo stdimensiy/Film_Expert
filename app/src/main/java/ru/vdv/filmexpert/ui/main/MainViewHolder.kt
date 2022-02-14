@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.filmexpert.databinding.ItemListMovieRoundBinding
-import ru.vdv.filmexpert.databinding.ItemListMoviesBinding
 
 class MainViewHolder(
     li: LayoutInflater,

@@ -1,10 +1,7 @@
 package ru.vdv.filmexpert.ui.main
 
-import android.provider.Settings.Global.getString
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.viewbinding.BuildConfig
-import ru.vdv.filmexpert.R
 import ru.vdv.filmexpert.domain.CallBack
 import ru.vdv.filmexpert.domain.MovieTmdb
 import ru.vdv.filmexpert.domain.MoviesResponseTmdb

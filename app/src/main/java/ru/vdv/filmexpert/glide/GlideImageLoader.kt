@@ -12,7 +12,7 @@ class GlideImageLoader : ImageLoader<ImageView> {
         Glide.with(container.context)
             .load(url)
             .placeholder(R.drawable.zgl)
-            .error(R.drawable.error_sign)
+            .error(R.drawable.zgl)
             .transition(DrawableTransitionOptions.withCrossFade(1500))
             .centerCrop()
             .into(container)
@@ -21,10 +21,10 @@ class GlideImageLoader : ImageLoader<ImageView> {
     override fun loadActorAvatar(url: String, container: ImageView) {
         Glide.with(container.context)
             .load(url)
-            .placeholder(R.drawable.actor_plug)
-            .error(R.drawable.error_sign)
+            .placeholder(R.drawable.zgl_actor)
+            .error(R.drawable.zgl_actor)
             .transition(DrawableTransitionOptions.withCrossFade(1500))
-            .circleCrop()
+            .centerCrop()
             .into(container)
     }
 
@@ -32,11 +32,11 @@ class GlideImageLoader : ImageLoader<ImageView> {
         val options = RequestOptions().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         Glide.with(container.context)
             .load(url)
-            //.placeholder(R.drawable.bg1_01_2)
+            .placeholder(R.drawable.bg1_01_2)
             //.error(R.drawable.error_sign)
             .transition(DrawableTransitionOptions.withCrossFade(1500))
             .apply(options)
-            //.circleCrop()
+            .centerCrop()
             .into(container)
     }
 }

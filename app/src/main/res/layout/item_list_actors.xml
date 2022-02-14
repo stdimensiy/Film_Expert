@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/actorCardView"
+    android:layout_width="wrap_content"
+    android:layout_height="220dp"
+    android:layout_margin="8dp"
+    android:checkable="true"
+    android:clickable="true"
+    android:elevation="2dp"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:strokeColor="@color/material_on_surface_stroke"
+    app:strokeWidth="1dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/iv_actor_profile"
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            app:srcCompat="@drawable/zgl_actor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dp">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/tv_actor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Имя актера"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_character"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:text="Роль актера в фильме"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

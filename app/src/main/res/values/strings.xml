@@ -2,4 +2,14 @@
     <string name="app_name">Film Expert</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">- - TMDB\n - КИНО - ЭКСПЕРТ</string>
+    <string name="tv_released_title_text">Премьера:</string>
+    <string name="tv_released_body_default_text">-- --- ----</string>
+    <string name="tv_runtime_default_text">-ч. --мин.</string>
+    <string name="tv_genres_default_text">...</string>
+    <string name="tv_rating_default_text">00</string>
+    <string name="tv_user_score_title_text">Оценка TMDB</string>
+    <string name="tv_overview_header_text">Описание</string>
+    <string name="tv_overview_body_default_text">...</string>
+    <string name="tv_top_billed_cast_header_text">Актерский состав</string>
+    <string name="header_title_text">Top Movies</string>
 </resources>
