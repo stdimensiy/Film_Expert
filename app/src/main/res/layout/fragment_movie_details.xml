@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/fullscreenBackgroundColor"
+        android:theme="@style/ThemeOverlay.FilmExpert.FullscreenContainer"
+        tools:context=".ui.main.MainFragment">
+
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="@string/dummy_content"
+            android:textColor="@color/header_white"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_bg_movie"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:alpha="0.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg1_01_2" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="-8dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:contentPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_bg_movie"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_movie"
+                tools:ignore="MissingConstraints">
+
+
+                <ImageView
+                    android:id="@+id/iv_poster"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:contentDescription=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/zgl" />
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/tv_name_movie"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="Star Wars: The Rise of Skywalker"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_released_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_released_title_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/materialCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_movie" />
+
+            <TextView
+                android:id="@+id/tv_released_body"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_released_body_default_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_released_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_movie" />
+
+            <TextView
+                android:id="@+id/tv_runtime"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_runtime_default_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/materialCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tv_released_title" />
+
+            <TextView
+                android:id="@+id/tv_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_genres_default_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/materialCardView"
+                app:layout_constraintTop_toBottomOf="@+id/tv_runtime"
+                tools:text="Action, Adventure, Science Fiction" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_progressbar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="0dp"
+                android:scrollbarSize="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_bg_movie"
+                app:layout_constraintStart_toEndOf="@+id/materialCardView">
+
+                <ImageView
+                    android:id="@+id/iv_background_progressbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    app:srcCompat="@drawable/circle"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/tv_rating_default_text"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:typeface="normal"
+                    app:flow_verticalAlign="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_background_progressbar"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_background_progressbar"
+                    app:layout_constraintStart_toStartOf="@+id/iv_background_progressbar"
+                    app:layout_constraintTop_toTopOf="@+id/iv_background_progressbar"
+                    tools:text="99" />
+
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:indicatorInset="2dp"
+                    app:indicatorSize="36dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:trackThickness="2dp"
+                    tools:progress="60" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv_user_score_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:keepScreenOn="true"
+                android:text="@string/tv_user_score_title_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/header_white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cl_progressbar"
+                app:layout_constraintStart_toEndOf="@+id/cl_progressbar"
+                app:layout_constraintTop_toTopOf="@+id/cl_progressbar" />
+
+
+            <TextView
+                android:id="@+id/tv_overview_header"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_overview_header_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+            <TextView
+                android:id="@+id/tv_overview_body"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="18dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_overview_body_default_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_overview_header"
+                tools:text="The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins." />
+
+            <TextView
+                android:id="@+id/tv_top_billed_cast_header"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="top"
+                android:keepScreenOn="true"
+                android:text="@string/tv_top_billed_cast_header_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_overview_body" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_actor_list"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_top_billed_cast_header" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</ScrollView>
