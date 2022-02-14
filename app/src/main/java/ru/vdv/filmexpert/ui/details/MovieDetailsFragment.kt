@@ -51,7 +51,10 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>() {
             it.getParcelable<MovieTmdb>(BaseConstants.MY_MOVIE_BUNDLE_KEY)?.let { movie = it }
         }
         viewModel = ViewModelProvider(this)[MovieDetailsViewModel::class.java]
-        if (savedInstanceState == null) viewModel.fetchCreditsList(apikey, movie.id.toString())
+        if (savedInstanceState == null) {
+            viewModel.fetchCreditsList(apikey, movie.id.toString())
+            viewModel.fetchDetailInfo(apikey, movie.id.toString())
+        }
 
         //Заполняем данными поля фрагмента
         imageLoader.loadMovieCover(
@@ -103,8 +106,6 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>() {
         rBar.setIndicatorColor(er)
         binding.tvOverviewBody.text = movie.overview
 
-
-
         imageLoader.loadMovieBackground(
             String.format(TmdbApiConstants.POSTER_URL, movie.backdropPath),
             binding.ivBgMovie
@@ -119,6 +120,25 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding>() {
             adapter.notifyDataSetChanged()
         }
 
-
+        viewModel.detailInfo.observe(viewLifecycleOwner) {
+            it?.let { it ->
+                // форматирование строки жанра
+                var strgenre: String = ""
+                it.genres.forEach {
+                    if (strgenre == "") {
+                        strgenre += it.name
+                    } else {
+                        strgenre += ", ${it.name}"
+                    }
+                }
+                binding.tvGenres.text = strgenre
+                // формати рование строки продолжительности
+                var duration: String = ""
+                duration = String.format(
+                    "%2dч. %2dмин.", it.runtime / 60, it.runtime - (it.runtime / 60) * 60
+                )
+                binding.tvRuntime.text = duration
+            }
+        }
     }
 }
